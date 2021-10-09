@@ -1,6 +1,6 @@
 # Installation und Setup
 
-Hier schauen wir uns ersteinmal an welche Software wir brauchen um mit dem Arduino reden zu können und welche Bibliotheken wir installieren müssen damit wir später auch mit den LEDs reden können und unsere Beispiele ausführen können.
+Hier schauen wir uns erst einmal an welche Software wir brauchen um mit dem Arduino reden zu können und welche Bibliotheken wir installieren müssen damit wir später auch mit den LEDs reden können und unsere Beispiele ausführen können.
 
 ## Installation der Arduino IDE
 
@@ -16,13 +16,13 @@ Danach öffnet ihr einfach die Arduino IDE wie ihr es von eurem Betriebssystem g
 
 Eine Bibliothek oder library ist eine Sammlung von vorgefertigten Befehlen für den Arduino, die es uns einfacher macht bestimmte Dinge mit einem Arduino zu machen. Wenn ihr weiter mit dem Arduino arbeitet werdet ihr noch viel mit Bibliotheken arbeiten, da sich viele Menschen die Zeit nehmen Bibliotheken zu schreiben um es sich selbst und anderen Menschen einfacher zu machen bestimmte Dinge mit einem Arduino zu verwenden.
 Bibliotheken können es euch einfacher machen bestimmte Sensoren auszulesen oder Dinge wie Motoren oder LEDs zu steuern, indem die komplexen Abläufe in der Bibliothek definiert sind und für euch ganz einfach zur Verfügung gestellt werden.
-Das tolle an der Open Source philosophie ist aber, dass ihr auch nachschauen könnt was intern in der Bibliothek gemacht wird, wenn euch interessiert wie bestimmte Sachen funktionieren. So könnt ihr sehr viel lernen aber auch selbst Fehler finden und beheben oder neue Sachen einbauen.
+Das tolle an der Open Source Philosophie ist aber, dass ihr auch nachschauen könnt was intern in der Bibliothek gemacht wird, wenn euch interessiert wie bestimmte Sachen funktionieren. So könnt ihr sehr viel lernen aber auch selbst Fehler finden und beheben oder neue Sachen einbauen.
 
 ### Der Library Manager
 
-Um eine bekannte Bibliothek zu installieren öffnet ihr einfach den Library Manager `Sketch|Bibliothek einbinden|Bibliotheken verwalten` uns sucht nach der Bibliothek mit dem entsprechenden Namen.
+Um eine bekannte Bibliothek zu installieren öffnet ihr einfach den Library Manager `Sketch|Bibliothek einbinden|Bibliotheken verwalten` und sucht nach der Bibliothek mit dem entsprechenden Namen.
 
-Wir werden die [FastLED](https://github.com/FastLED/FastLED) library verwenden um mit den LEDs zu kommunizieren, deshalb suchen wir nach der `fastled` Bibliothek.
+Wir werden die [FastLED](https://github.com/FastLED/FastLED) library verwenden um mit den LEDs zu kommunizieren, deshalb suchen wir nach der `FastLED` Bibliothek.
 
 ![Bibliothek hinzufügen](../images/library_manager.png)
 
@@ -38,13 +38,13 @@ Nun können wir die Bibliothek entweder mit Git über ssh auschecken:
 ```
 git clone git@github.com:nomeme/JugendHackt-Animation-Lib.git
 ```
-wenn ihr einen github Account habt.
+wenn ihr einen [Github](https://www.github.com) Account habt.
 Oder über https, wenn ihr keinen Account habt:
 ```
 git clone https://github.com/nomeme/JugendHackt-Animation-Lib.git
 ```
 
-Solltet ihr kein git haben könnt ihr auch einfach die zip datei von [hier](https://github.com/nomeme/JugendHackt-Animation-Lib/archive/master.zip) herunterladen und dann im passenden Ordner entpacken.
+Solltet ihr kein git haben könnt ihr auch einfach die zip Datei von [hier](https://github.com/nomeme/JugendHackt-Animation-Lib/archive/master.zip) herunterladen und dann im passenden Ordner entpacken.
 
 Nun müsst ihr nur noch die Arduino IDE neu starten und wir können los legen.
 
@@ -59,9 +59,9 @@ Habt ihr alles richtig gemacht sollten ein paar LEDs zu leuchten beginnen.
 
 ## Unser erster Sketch
 
-Ein Sketch hat immer eine sogenannte `setup` methode und eine `loop` methode.
-Die `setup` methode verwenden wir um Einstellungen vor zu nehmen bevor das eigentliche Programm ausgeführt wird.
-Die `loop` methode verwenden wir um unsere eigentlichen Aufgaben für den Arduino aufzuschreiben. Alles was in der `loop` methode steht macht der Arduino immer und immer wieder, bis wir ihn vom Strohm nehmen.
+Ein Sketch hat immer eine sogenannte `setup` Methode und eine `loop` Methode.
+Die `setup` Methode verwenden wir um Einstellungen vor zu nehmen bevor das eigentliche Programm ausgeführt wird.
+Die `loop` Methode verwenden wir um unsere eigentlichen Aufgaben für den Arduino aufzuschreiben. Alles was in der `loop` Methode steht macht der Arduino immer und immer wieder, bis wir ihn vom Strohm nehmen.
 
 Die Befehle arbeitet der Arduino immer von oben nach unten ab.
 Das ganze sieht dann zum Beispiel so aus:
@@ -85,9 +85,9 @@ void loop() {
 Hier könnt ihr die beiden Methoden `setup()` und `loop()` sehen.
 In diesen Methoden stehen dann die Befehle für den Arduino. Jeder Befehl endet mit einem `;`.
 
-Um euch zu erklähren was dieser Befehl mach habe ich dahinter ein Kommentar geschrieben. Die Kommentare sind alles was hinter dem `//` steht. Sie werden vom Arduino ignoriert und dienen nur dazu euch zu erklähren was in der jeweiligen Zeile passiert.
+Um euch zu erklären was dieser Befehl mach habe ich dahinter ein Kommentar geschrieben. Die Kommentare sind alles was hinter dem `//` steht. Sie werden vom Arduino ignoriert und dienen nur dazu euch zu erklären was in der jeweiligen Zeile passiert.
 
-Den sketch öffnet ihr über `Datei|Beispiele|JugendHacktAnimation|Sketch`.
+Den Sketch öffnet ihr über `Datei|Beispiele|JugendHacktAnimation|Sketch`.
 Danach sollte ein Fenster mit den Arduino Befehlen auftauchen. 
 
 ### Sketch auf den Arduino spielen
@@ -110,7 +110,7 @@ Damit wir auch Daten vom Arduino bekommen müssen wir den Seriellen monitor öff
 
 ![Seriellen Monitor](../images/select_serial_monitor.png)
 
-Damit wir die Daten auch korrekt empfangen müssen wir noch die übertragungsrate einstellen. Die muss auf dem Arduino und deinem Computer gleich sein.
+Damit wir die Daten auch korrekt empfangen müssen wir noch die Übertragungsrate einstellen. Die muss auf dem Arduino und deinem Computer gleich sein.
 Im Sketch haben wir sie mit `Serial.begin(115200)` auf `115200` eingestellt. Das müssen wir nun im Seriellen Monitor auch tun.
 
 ![Baudrate einstellen](../images/configure_serial_monitor.png)
@@ -140,14 +140,21 @@ Solltet ihr einen Arduino Uno haben könnt ihr den natürlich auch verwenden. Di
 
 ![Anschluss Arduino Uno](../schematics/UnoSetup_bb.png)
 
-Der Anschluss des Pixelrings an dem `VCC` steht muss mit dem `5V` Anschluss des Arduino verbunden werden.
-Der Anschluss des Pixelrings an dem `GND` steht muss mit dem `GND` Anschluss am Arduino verbunden werden.
-Zuletzt verbinden wir den `DIN` Anschluss am Pixelring mit dem Anschluss `6` am Arduino.
+Der Anschluss des Pixel-Rings an dem `VCC` steht muss mit dem `5V` Anschluss des Arduino verbunden werden.
+Der Anschluss des Pixel-Rings an dem `GND` steht muss mit dem `GND` Anschluss am Arduino verbunden werden.
+Zuletzt verbinden wir den `DIN` Anschluss am Pixel-Ring mit dem Anschluss `6` am Arduino.
 
 # Weitere Schritte.
 
-Wie geht es jetze weiter? Wir wissen nun, wie wir einen Sektch auf den Arduino übertragen können.
-Wenn das alles für euch neu ist, dann schaut doch im Kapitel [Grundlagen](doc/Grundlagen.md) vorbei. Dort lernen wir alles was wir in den weitern Kapiteln brauchen.
-Wenn ihr schon etwas mehr wisst, dann könnt ihr auch direkt mit dem Kapitel [Von Farben und Physik](doc/Farben.md) los legen. Ich werde euch immer wieder auf die passenden Teile des Grundlagenkapitels hinweisen, wenn wir neue Dinge ausprobieren.
+Wie geht es jetzt weiter? Wir wissen nun, wie wir einen Sketch auf den Arduino übertragen können.
+Wenn das alles für euch neu ist, dann schaut doch im Kapitel [Grundlagen](Grundlagen.md) vorbei. Dort lernen wir alles was wir in den weitern Kapiteln brauchen.
+Wenn ihr schon etwas mehr wisst, dann könnt ihr auch direkt mit dem Kapitel [Von Farben und Physik](Farben.md) los legen. Ich werde euch immer wieder auf die passenden Teile des Grundlagenkapitels hinweisen, wenn wir neue Dinge ausprobieren.
 
+---
+
+[Anfang](../Readme.md) | [Grundlagen](Grundlagen.md) | [Von Farben und Physik](Farben.md)
+
+---
+
+[Anfang](../Readme.md) | [Setup](Setup.md) | [Grundlagen](Grundlagen.md) | [Von Farben und Physik](Farben.md) | [Animationen](Animation.md)
 

@@ -1,16 +1,16 @@
 # Die Grundlagen
 
-Hier schauen wir uns schritt für Schritt an wie Programmieren mit einem Arduino funktioniert und wie wir ihm beibringen können Dinge für uns zu erledigen. Denn das ist was Programmieren im wesentlichen bedeutet. Wir wollen, dass ein Computer Dinge für uns erledigt. Nun schauen wir uns an wie wir soetwas machen können.
+Hier schauen wir uns Schritt für Schritt an wie Programmieren mit einem Arduino funktioniert und wie wir ihm beibringen können Dinge für uns zu erledigen. Denn das ist was Programmieren im Wesentlichen bedeutet. Wir wollen, dass ein Computer Dinge für uns erledigt. Nun schauen wir uns an wie wir so etwas machen können.
 
-Alles was mit Programmieren zu tun hat hat irgendwie mit Werten zu tun. Diese Werte können wir *Lesen*, *Speichern* oder *Modifizieren*.
+Alles was mit Programmieren zu tun hat, hat irgendwie mit Werten zu tun. Diese Werte können wir *Lesen*, *Speichern* oder *Modifizieren*.
 Das ist eigentlich alles was wir beim Programmieren tun.
 
 Als Beispiel möchten wir, dass der Arduino eine LED einschaltet, wenn es Dunkel wird.
 Dazu schließen wir eine LED und einen Helligkeitssensor an den Arduino an.
 Wir *lesen* den Wert des Helligkeitssensors aus. Abhängig von dem Wert *modifizieren* wir den Wert für die Helligkeit der LED und *speichern* den Wert damit die LED diese eingestellte Helligkeit beibehält.
 
-Klingt ja alles garnicht so schwer. Ist es auch nicht. Jetzt schauen wir uns einfach schritt für schritt an wie man Werte
-*Lesen* und *Speichern* kann und wie man sie *Modifiziert*.
+Klingt ja alles gar nicht so schwer. Ist es auch nicht. Jetzt schauen wir uns einfach Schritt für Schritt an wie man Werte
+*lesen* und *speichern* kann und wie man sie *modifiziert*.
 
 # Ausgabe von Werten
 
@@ -23,7 +23,7 @@ Dazu verwendet der Arduino eine serielle Schnittstelle. Der Arduino schickt uns 
 Schauen wir uns an wie das Ganze funktioniert.
 Zuerst müssen wir unsere serielle Schnittstelle richtig einstellen.
 Wir erinnern uns, dass jeder Sketch für einen Arduino hat eine `setup()` Methode und eine `loop()` Methode hat.
-Einstellungen die für den ganten Sketch gelten nehmen wir in der `setup()` Methode vor, denn sie wird immer als erstes ausgeführt und wir wollen unsere serielle Schnittstelle ganz am Anfang richtig einstellen.
+Einstellungen die für den ganzen Sketch gelten nehmen wir in der `setup()` Methode vor, denn sie wird immer als erstes ausgeführt und wir wollen unsere serielle Schnittstelle ganz am Anfang richtig einstellen.
 Also schauen wir doch mal so eine `setup()` Methode an.
 
 ``` C++
@@ -32,22 +32,22 @@ void setup() {
 }
 ```
 
-Hier seht ihr unsere `setup()` methode.
+Hier seht ihr unsere `setup()` Methode.
 Die Zeile `void setup()` sag dem Arduino, dass die `setup()` Methode hier beginnt.
-Alles was zwichen den zwei Klammern `{` und `}` steht ist dann ein Teil der `setup()` Methode und der Arduino weiss dadurch,
+Alles was zwischen den zwei Klammern `{` und `}` steht ist dann ein Teil der `setup()` Methode und der Arduino weiss dadurch,
 dass er alle Befehle zwischen diesen beiden Klammern ganz am Anfang ausführen muss.
 
 Der Inhalt unserer `setup()` Methode ist `Serial.begin(115200)`. Das ist also alles was der Arduino in der `setup()` Methode ausführen muss. Aber was genau macht das jetzt.
-Diese Zeile sagt unserem Arduino, dass er die serielle Schnittstelle benutzen soll. Ist ja auch logisch `Serial.begin` heisst ja so viel wie Seriell.anfangen. Aber was bedeutet diese Zahl zwichen den Klammern `(` und `)`?
-Damit stellen wir die Übertragungsrate der seriellen Verbindung ein. Was das genau bedeutet ist erstmal garnicht wichtig. Es ist nur wichtig, dass wir an unserem Computer im Seriellen Monitor die gleiche Übertragungsrate einstellen.
+Diese Zeile sagt unserem Arduino, dass er die serielle Schnittstelle benutzen soll. Ist ja auch logisch `Serial.begin` heisst ja so viel wie Seriell.anfangen. Aber was bedeutet diese Zahl zwischen den Klammern `(` und `)`?
+Damit stellen wir die Übertragungsrate der seriellen Verbindung ein. Was das genau bedeutet ist erstmal gar nicht wichtig. Es ist nur wichtig, dass wir an unserem Computer im seriellen Monitor die gleiche Übertragungsrate einstellen.
 
 ![Übertragungsrate Serieller Monitor](../images/configure_serial_monitor.png)
 
-Den Seriellen Monitor könnt ihr so öffnen.
+Den seriellen Monitor könnt ihr so öffnen.
 
 ![Seriellen Monitor öffnen](../images/select_serial_monitor.png)
 
-Nach dem wir die Serielle Schnittstelle eingestellt haben können wir in unserer `loop()` Methode daten an den Computer schicken.
+Nach dem wir die Serielle Schnittstelle eingestellt haben können wir in unserer `loop()` Methode Daten an den Computer schicken.
 Schauen wir uns an wie das funktioniert.
 
 ``` C++
@@ -56,7 +56,7 @@ void loop() {
 }
 ```
 
-Wollen wir Text an unseren Computer schicken könne wir das ganz einfach tun indem wir der seriellen Schnittstelle sagen was wir schicken wollen. Es gibt einmal die Methode `print()`, was so viel heißt wie Drucken und die Methode `println()` was so viel heißt wie Zeile Drucken.
+Wollen wir Text an unseren Computer schicken können wir das ganz einfach tun indem wir der seriellen Schnittstelle sagen was wir schicken wollen. Es gibt einmal die Methode `print()`, was so viel heißt wie Drucken und die Methode `println()` was so viel heißt wie Zeile Drucken.
 Das bedeutet dass Daten die wir mit der Methode `println()` ausgeben am Ende immer eine neue Zeile erzeugen. Daten die wir mit der Methode `print()` drucken erzeugen am Ende keine neue Zeile.
 
 Wenn wir Texte an den Computer schicken wollen, dann können wir die Texte in Anführungszeichen zwischen die zwei Klammern `(` und `)` schreiben.
@@ -86,7 +86,7 @@ Der letzte Befehl `Serial.println()` schickt nichts an den Computer und schließ
 
 ### Beispiel
 
-Schauen wir uns das Beispiel Ausgabe an. Öffnet dazu den Beispielsketch `Datei|Beispiele|Jugend Hackt Animation-lib|Variablen`.
+Schauen wir uns das Beispiel Ausgabe an. Öffnet dazu den Beispiel-Sketch `Datei|Beispiele|Jugend Hackt Animation-lib|A_01_Ausgabe`.
 
 ``` C++
 
@@ -98,7 +98,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   Serial.print("Hallo Zahl: "); // Wir geben einen Text aus ohne eine neue Zeile am Ende
@@ -108,11 +108,11 @@ void loop() {
 }
 ```
 
-Hier seht ihr wie das in einem ganzen Sketch aussieht. Ladet den Sketch aud euren Arduino indem ihr den Upload Knopf drückt.
+Hier seht ihr wie das in einem ganzen Sketch aussieht. Ladet den Sketch auf euren Arduino indem ihr den Upload Knopf drückt.
 
-![Upload knopf](../images/upload_button.png)
+![Upload Knopf](../images/upload_button.png)
 
-Wenn ihr den Seriellen Monitor öffnet könnt ihr nun die Ausgabe anschauen.
+Wenn ihr den seriellen Monitor öffnet könnt ihr nun die Ausgabe anschauen.
 Gebt doch euren eigenen Text aus, fügt einen neuen Text hinzu oder spielt damit wann ihr eine neue Zeile erzeugt.
 Wir sehen uns im nächsten Kapitel.
 
@@ -129,7 +129,7 @@ Stellt euch Variablen als Namen für Werte vor. Wir müssen dem Arduino am Anfan
 int a;
 ```
 
-Hier sagen wir dem Arduino Dass es eine Variable mit dem Namen `a` gibt, die Ganzzahlige Werte speichern kann.
+Hier sagen wir dem Arduino sass es eine Variable mit dem Namen `a` gibt, die Ganzzahlige Werte speichern kann.
 Diese Ganzzahlwerte werden auch Integer (kurz `int`) genannt. Also sowas wie `1` oder `5` oder `1337`.
 Aber bis jetzt hat diese Variable noch keinen Wert gespeichert. Das lösen wir ganz einfach.
 
@@ -162,7 +162,7 @@ Und wenn ihr euch noch an das letzte Kapitel erinnert, dann arbeitet der Arduino
 ### Beispiel
 
 Jetzt wissen wir ja wie das funktioniert und können uns das Beispiel dazu genauer anschauen.
-Öffnet zuerst den Beispielsketch Variablen `Datei|Beispiele|Jugend Hackt Animation-lib|Variablen`.
+Öffnet zuerst den Beispiel-Sketch Variablen `Datei|Beispiele|Jugend Hackt Animation-lib|A_02_Variablen`.
 Es öffnet sich ein neues Fenster mit Programmcode, den wir uns nun etwas genauer anschauen werden.
 
 ``` C++
@@ -176,7 +176,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int a; // Wir deklarieren eine Variable vom Typ Integer (int), was Ganzzahl bedeutet.
@@ -213,7 +213,7 @@ void loop() {
 ```
 
 Das scheint erstmal etwas viel aber eigentlich ist es ganz einfach.
-Die `setup()` methode kennt ihr ja schon. Hier stellen wir alles so ein, dass wir mit dem Computer reden können.
+Die `setup()` Methode kennt ihr ja schon. Hier stellen wir alles so ein, dass wir mit dem Computer reden können.
 
 ``` C++
 void setup() {
@@ -223,7 +223,7 @@ void setup() {
 }
 ```
 
-Die `loop()` methode sieht jetzt etwas anderst aus, aber das ist ganz normal, wir wollen ja auch was anderes tun.
+Die `loop()` Methode sieht jetzt etwas anders aus, aber das ist ganz normal, wir wollen ja auch was anderes tun.
 Wir deklarieren zuerst eine ganzzahlige Variable (`int`) `a`, weißen ihr einen Wert zu und schicken diesen Wert an den Computer.
 
 ``` C++
@@ -248,7 +248,7 @@ Wir deklarieren zuerst eine ganzzahlige Variable (`int`) `a`, weißen ihr einen 
   delay(1000); // Wir warten eine Sekunde.
 ```
 
-Ist doch alles garnicht so kompliziert wie es am Anfang aussieht.
+Ist doch alles gar nicht so kompliziert wie es am Anfang aussieht.
 Im nächsten Schritt deklarieren wir die ganzzahlige Variable (`int`) `b` und weißen ihr einfach direkt einen Wert zu und schicken das dann an den Computer.
 
 ``` C++
@@ -258,7 +258,7 @@ Im nächsten Schritt deklarieren wir die ganzzahlige Variable (`int`) `b` und we
   delay(1000); // Wir warten eine Sekunde.
 ```
 
-Das ist alles garnicht so schwer. Aber was ist wenn wir zum Beispiel den Wert von `b` später verändern wollen?
+Das ist alles gar nicht so schwer. Aber was ist wenn wir zum Beispiel den Wert von `b` später verändern wollen?
 Das ist gar kein Problem. Hier verändern wir einfach den Wert für `b` und schicken ihn wieder an den Computer.
 
 ``` C++
@@ -267,10 +267,10 @@ Das ist gar kein Problem. Hier verändern wir einfach den Wert für `b` und schi
   Serial.println(b);
 ```
 
-Mit dem Upload Knopf könnt ihr den neuen Sketch auf den Arduino laden und euch im Seriellen Monitor die Ausgaben anschauen.
+Mit dem Upload Knopf könnt ihr den neuen Sketch auf den Arduino laden und euch im seriellen Monitor die Ausgaben anschauen.
 Was erwartet ihr und stimmen die Resultate mit euren Erwartungen überein?
 
-Spielt doch ein wenig mit den Werten herum und schaut was passiert. Was passiert denn zum Beispiel wenn ihr den Wert von `a` nachträglich verändert und wieder an den Computer schickt, oder eine neue Variable mit einem anderen Wert erzeugt und diese an den Computer schickt. Was würde denn passieren, wenn ihr diese Zeilen noch in der loop methode hinzu fügt?
+Spielt doch ein wenig mit den Werten herum und schaut was passiert. Was passiert denn zum Beispiel wenn ihr den Wert von `a` nachträglich verändert und wieder an den Computer schickt, oder eine neue Variable mit einem anderen Wert erzeugt und diese an den Computer schickt. Was würde denn passieren, wenn ihr diese Zeilen noch in der loop Methode hinzu fügt?
 
 ``` C++
   int c = a;
@@ -284,17 +284,17 @@ Wir sehen uns im nächsten Kapitel wieder.
 
 ## Die Mathematik
 
-Ja wir müssen uns auch ein bisschen mit Mathematik beschäftigen. Aber keine Angst, es wird garnicht so kompliziert wie einige von euch jetzt vielleicht befürchten. Wenn wir uns mit dem Programmieren beschäftigen heisst es aber immer, dass wir uns auch mit Mathematik beschäftigen. Ein Computer wird ja auch Rechner genannt und das hat auch seine Gründe.
+Ja wir müssen uns auch ein bisschen mit Mathematik beschäftigen. Aber keine Angst, es wird gar nicht so kompliziert wie einige von euch jetzt vielleicht befürchten. Wenn wir uns mit dem Programmieren beschäftigen heisst es aber immer, dass wir uns auch mit Mathematik beschäftigen. Ein Computer wird ja auch Rechner genannt und das hat auch seine Gründe.
 
-Im Wesentlichen ist ein Computer eine Maschiene, die Rechenaufgaben lösen kann. Das bedeutet auch, dass hinter jedem Pixel auf eurem Monitor Rechenaufgaben versteckt sind, die euer Computer lösen muss, damit am Ende Bilder entstehen oder Text angezeigt wird.
+Im Wesentlichen ist ein Computer eine Maschine, die Rechenaufgaben lösen kann. Das bedeutet auch, dass hinter jedem Pixel auf eurem Monitor Rechenaufgaben versteckt sind, die euer Computer lösen muss, damit am Ende Bilder entstehen oder Text angezeigt wird.
 Ist es nicht faszinierend, dass wir aus einfacher Mathematik, Zahlen und Rechenaufgaben, Texte erzeugen können, oder Bilder Entstehen lassen, ja sogar ganze virtuelle Welten erschaffen können?
 
-Bevor wir uns also Animationen und Farben anschauen werfen wir einen wirklich kurzen Blick auf die Mathematik, die hinter diesem ganzen faszinierenen System steckt.
+Bevor wir uns also Animationen und Farben anschauen werfen wir einen wirklich kurzen Blick auf die Mathematik, die hinter diesem ganzen faszinierenden System steckt.
 
-### Beislpiel: Rechenergebnisse speichern
+### Beispiel: Rechenergebnisse speichern
 
-Ein Computer ist ja im wesentlichen ein Gerät um Berechnungen auszuführen. Aber wie funktioniert sowas denn?
-Wir erinnern uns an die Variablen aus dem letzten Kapitel. Da haben wir ganzzahligen Variablen Werte zugewießen.
+Ein Computer ist ja im wesentlichen ein Gerät um Berechnungen auszuführen. Aber wie funktioniert so etwas denn?
+Wir erinnern uns an die Variablen aus dem letzten Kapitel. Da haben wir ganzzahligen Variablen Werte zugewiesen.
 Mit der Mathematik können wir jetzt noch viel mehr mit diesen Variablen tun. Zum Beispiel können wir Ergebnisse von Rechenaufgaben in variablen speichern.
 
 
@@ -302,7 +302,7 @@ Mit der Mathematik können wir jetzt noch viel mehr mit diesen Variablen tun. Zu
 int a = 5 + 5;
 ```
 
-Die Variable `a` speichert jetzt das Ergebnis der Rechenaufgabe `5+5`. Ist ja alles garnicht so kompliziert.
+Die Variable `a` speichert jetzt das Ergebnis der Rechenaufgabe `5+5`. Ist ja alles gar nicht so kompliziert.
 
 Was kann so ein Computer denn alles berechnen?
 Eigentlich kann man mit einem Computer so ziemlich alles berechnen. Wir bleiben aber erstmal bei den einfachen Rechenoperationen.
@@ -322,11 +322,11 @@ int div = 8/2;
 ```
 
 Wir haben hier die Variable mit dem Namen `add`, die das Ergebnis der Rechenaufgabe `5+5` speichert.
-Wir haben die Variable mit dem Namen `sub`, die das Ergebnis der Rechenaufgaber `6-3`speichert.
-Die Variable mit dem Namen `mul` speicher das Ergebnis der Multiplikation `2*2`.
+Wir haben die Variable mit dem Namen `sub`, die das Ergebnis der Rechenaufgabe `6-3`speichert.
+Die Variable mit dem Namen `mul` speichert das Ergebnis der Multiplikation `2*2`.
 Und die Variable mit dem Namen `div` speichert das Ergebnis der Division `8/2`.
 
-Wenn wir den Sketch `Rechenergebnisse` laden `Datei|Beispiele|Jugend Hackt Animation-lib|Rechenergebnisse` könne wir die Rechenoperationen ausführen und uns die Ergebnisse ausgeben lassen.
+Wenn wir den Sketch `Rechenergebnisse` laden `Datei|Beispiele|Jugend Hackt Animation-lib|A_03_Rechenergebnisse` könne wir die Rechenoperationen ausführen und uns die Ergebnisse ausgeben lassen.
 
 ``` C++
 /*
@@ -339,7 +339,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int add = 5+5; // Die Variable add speichert das Ergebnis der Addition 5+5.
@@ -395,8 +395,8 @@ Dann schicken wir die gespeicherten Werte an unseren Computer.
 
 Soweit eigentlich ganz einfach.
 
-Mit dem Upload knopf könnt ihr diesen Sketch wieder auf den Arduino laden und ausführen.
-Die Ergebnisse der Berechnungen zeigt euch wieder der Serielle Monito an.
+Mit dem Upload Knopf könnt ihr diesen Sketch wieder auf den Arduino laden und ausführen.
+Die Ergebnisse der Berechnungen zeigt euch wieder der Serielle Monitor an.
 
 ### Beispiel: Rechnen mit Variablen
 
@@ -413,8 +413,8 @@ int c = a - 1;
 ```
 
 Was wir hier tun ist ganz einfach, wir deklarieren eine Variable `a` mit dem Wert 5.
-In der Variable `b` speichern wir das Ergebnis von `a + 1` also `5+1` und in der Variable `c` das Ergebnis von `a - 1` also `5+1`.
-Alles garnicht so kompliziert.
+In der Variable `b` speichern wir das Ergebnis von `a + 1` also `5+1` und in der Variable `c` das Ergebnis von `a - 1` also `5-1`.
+Alles gar nicht so kompliziert.
 
 Wir können das ganze auch nur mit Variablen machen:
 
@@ -431,7 +431,7 @@ Die Variable `c` speichert das Ergebnis von `a + b`, was ja `5 + 10` ist, also `
 Die Variable `d` speichert das Ergebnis von `b - a`, was `10 - 5` ist, also `5`.
 
 
-Öffnet den Sketch Rechenergebnisse über `Datei|Beispiele|Jugend Hackt Animation-lib|RechnenMitVariablen` und schaut euch den Quelltext etwas genauer an. Was denkt ihr sind die Ausgaben für `c`, `d`, `e`, `f`, `g`, `h`, `i` und `j`?
+Öffnet den Sketch Rechenergebnisse über `Datei|Beispiele|Jugend Hackt Animation-lib|A_04_RechnenMitVariablen` und schaut euch den Quelltext etwas genauer an. Was denkt ihr sind die Ausgaben für `c`, `d`, `e`, `f`, `g`, `h`, `i` und `j`?
 
 ``` C++
 /*
@@ -444,7 +444,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int a = 5;
@@ -489,7 +489,7 @@ void loop() {
 }
 ```
 
-Drückt den Upload knopf und schaut euch die Ergebnisse an. Stimmen sie mit dem überein was ihr euch überlegt habt?
+Drückt den Upload Knopf und schaut euch die Ergebnisse an. Stimmen sie mit dem überein was ihr euch überlegt habt?
 
 Was passiert denn genau?
 
@@ -512,7 +512,7 @@ Auch hier ist es noch recht einfach, wir addieren einfach `a` und `b,` also `5 +
   int h = a * a;
 ```
 
-Wir können das auch mit multiplikationen machen `b / a` is also `10 / 5`, also `2`.
+Wir können das auch mit Multiplikation und Division machen `b / a` is also `10 / 5`, also `2`.
 Wir können auch die gleiche Variable mit sich selbst verrechnen also `a * a` ist `5 * 5` was `25` ergibt.
 
 ``` C++
@@ -533,13 +533,13 @@ Warum sagt der Arduino aber, dass das Ergebnis von `a / 2`, also `5 / 2` die Zah
 Das Problem an der Sache ist, dass wir dem Arduino gesagt haben, dass `j` eine Ganzzahl ist (also ein Integer oder `int`).
 Daher kann der Arduino nur ganze Zahlen in `j` speichern und schneidet alles hinter dem Komma einfach ab.
 
-Wow, das war viel, aber ganz so kompliziert war das doch garnicht.
-Im nächsten Kapitel schauen wir uns noch kurz an wie man auch mit Fließkommazahlen rechnen kann und dann wissen wir eigentlich alles was wir brauchen um mit Farben und Animationen los zu legen.
+Wow, das war viel, aber ganz so kompliziert war das doch gar nicht.
+Im nächsten Beispiel schauen wir uns noch kurz an wie man auch mit Fließkommazahlen rechnen kann und dann wissen wir eigentlich alles was wir brauchen um mit Farben und Animationen los zu legen.
 
 ### Beispiel: Fließkommazahlen.
 
-Bisher haben wir nur mit Ganzzahlen gearbeitet. Nun schauen wir uns einen anderen Datentyp an, die Fließkommazahl, oder (Floatingpoint number (float)).
-Damit is es uns möglich auch Zahlen mit kommastellen zu verwenden. Wir deklarieren Fließkommazahlen folgendermaßen:
+Bisher haben wir nur mit Ganzzahlen gearbeitet. Nun schauen wir uns einen anderen Datentyp an, die Fließkommazahl, oder (Floatingpoint number (`float`)).
+Damit is es uns möglich auch Zahlen mit Kommastellen zu verwenden. Wir deklarieren Fließkommazahlen folgendermaßen:
 
 ``` C++
 float pi = 3.1415;
@@ -553,7 +553,7 @@ Jetzt können wir endlich auch Rechnungen mit *krummen* Ergebnissen korrekt bere
 float ergebnis = 5.0 / 2.0;
 ```
 
-Wie Ihr seht schreiben wir für fließkommazahlen immer ein `.0` dazu, dadurch weiss der Arduino nämlich, dass es sich um eine Fließkommazahl handelt. Sehen wir uns doch an was passiert, wenn wir das nicht tun.
+Wie Ihr seht schreiben wir für Fließkommazahlen immer ein `.0` dazu, dadurch weiss der Arduino nämlich, dass es sich um eine Fließkommazahl handelt. Sehen wir uns doch an was passiert, wenn wir das nicht tun.
 
 ``` C++
 float ergebnis = 5 / 2;
@@ -562,7 +562,7 @@ float ergebnis = 5 / 2;
 Im Normalfall geht der Arduino immer davon aus, dass es sich um eine Ganzzahl handelt. In diesem Beispiel rechnet der Arduino also ersteinmal mit ganzen Zahlen und speichert den Wert erst nach der Rechnung als Fließkommazahl ab. Die Nachkommastelle fällt aus diesem Grund also weg und wir bekommen trotzdem `2.0` als Ergebnis.
 Das ist natürlich ärgerlich und führt oft zu komischen Fehlern.
 
-Schaut euch den Beispielsketch unter `Datei|Beispiele|Jugend Hackt Animation-lib|RechenenMitFließkommazahlen` an um Beispiele zu sehen, wie man dieses Problem umgehen kann.
+Schaut euch den Beispiel-Sketch unter `Datei|Beispiele|Jugend Hackt Animation-lib|A_05_RechenenMitFließkommazahlen` an um Beispiele zu sehen, wie man dieses Problem umgehen kann.
 
 ``` C++
 /*
@@ -575,7 +575,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   float pi = 3.1415;
@@ -666,7 +666,7 @@ Größe bedeutet in diesem Fall wie groß die Zahl sein kann, die wir mit diesem
 Das hängt direkt damit zusammen wie viele Bytes für eine Zahl zur Verfügung stehen. Je mehr Bytes wir haben, desto größer die Zahl die wir abbilden können.
 Außerdem gibt es sowas wie `signed` oder `unsigned`. Eine Zahl von einem Typ der `unsigned` ist kann nur positive Werte abbilden.
 Eine Zahl von einem Typ der `signed` ist kann sowohl positive als auch negative Werte abbilden.
-Das ist manchmal nützlich, wenn wir zum Beispiel die Helligkeit von LEDs einstellen wollen, Dann kann die LED hell oder dunkel sein. Ein negative Wert macht hier also recht wenig Sinn.
+Das ist manchmal nützlich, wenn wir zum Beispiel die Helligkeit von LEDs einstellen wollen. Dann kann die LED hell oder dunkel sein. Ein negative Wert macht hier also recht wenig Sinn.
 
 
 |Typ    |Größe byte|Größe bit| Größe Zahl | Vorzeichen |
@@ -676,7 +676,7 @@ Das ist manchmal nützlich, wenn wir zum Beispiel die Helligkeit von LEDs einste
 | `int` | 2 Bytes  | 16 bit  | -32,768 bis 32,767 | signed |
 | `long` | 4 Bytes  | 32 bit  | -2,147,483,648 bis 2,147,483,647 | signed |
 
-Wertebereiche für Fließkommazahlen anzugeben ist schwer, da sich die Umsetzung ganz stark von den Ganzzahlen unterscheidet.
+Den Wertebereich für Fließkommazahlen anzugeben ist schwer, da sich die Umsetzung ganz stark von den Ganzzahlen unterscheidet.
 Aber ihr könnt euch das so vorstellen, dass die Auflösung der Fließkommazahlen besser wird je größer (mehr bytes) die Zahl wird.
 
 Für uns sollte aber der Typ `float` erstmal ausreichen.
@@ -686,7 +686,7 @@ Wenn euch das genauer interessiert könnt ihr auch [hier](https://www.arduino.cc
 
 ## Bedingungen
 
-Wenn wir mit dem Arduino arbeiten kommen wir ab und an in die Situation, dass wir bestimmte Befehle nur ausführen wollen, wenn bestimmte Bedingunen erfüllt sind. Es macht doch zum Beispiel nur Sinn das Licht einzuschalten, wenn es auch wirklich dunkel ist.
+Wenn wir mit dem Arduino arbeiten kommen wir ab und an in die Situation, dass wir bestimmte Befehle nur ausführen wollen, wenn bestimmte Bedingungen erfüllt sind. Es macht doch zum Beispiel nur Sinn das Licht einzuschalten, wenn es auch wirklich dunkel ist.
 Aber wie funktionieren solche Bedingungen.
 Bedingungen sind immer `wahr` oder `falsch`. Mit dem Arduino können wir folgende Bedingungen überprüfen.
 
@@ -696,7 +696,7 @@ Bedingungen sind immer `wahr` oder `falsch`. Mit dem Arduino können wir folgend
 * **Kleiner** mit `<` können wir schauen ob der Wert kleiner ist.
 
 Wie sagen wir dem Arduino, dass er einen Wert überprüfen soll? Dafür gibt es die `if` Bedingung.
-Damit sagen wir dem Arduino *wenn* diese Bedinging erfüllt ist, dann führe die Befehle zwichen den Klammern `{` und `}` aus.
+Damit sagen wir dem Arduino *wenn* diese Bedingung erfüllt ist, *dann* führe die Befehle zwischen den Klammern `{` und `}` aus.
 
 ``` C++
 int wert = 12;
@@ -706,7 +706,7 @@ if(wert == 12) {
 ```
 
 Garnicht so schwer oder? Wie sieht es denn aus wenn wir schauen wollen ob ein Wert kleiner ist.
-Dabei ist die Reihenfolge wichtig. Wir wollen ja schauen ob der Wert kleier ist. Wenn wir die kleiner Bedingung verwenden wollen, also `<` dann müssen wir `if(wert < 12)` schreiben.
+Dabei ist die Reihenfolge wichtig. Wir wollen ja schauen ob der Wert kleiner ist. Wenn wir die kleiner Bedingung verwenden wollen, also `<` dann müssen wir `if(wert < 12)` schreiben.
 
 ``` C++
 int wert = 3;
@@ -719,7 +719,7 @@ Wenn wir schreiben würden `if(12 < wert)` würde nichts ausgegeben werden, weil
 
 ### Beispiel
 
-Schaut euch doch den Beispielsketch dazu an. Ihr findet ihn unter `Datei|Beispiele|Jugend Hackt Animation-lib|Bedingungen`.
+Schaut euch doch den Beispiel-Sketch dazu an. Ihr findet ihn unter `Datei|Beispiele|Jugend Hackt Animation-lib|A_06_Bedingungen`.
 
 ``` C++
 
@@ -733,7 +733,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int wert = 12;
@@ -784,7 +784,7 @@ Schauen wir uns einfach das Beispiel dazu an.
 ### Beispiel
 
 
-Öffnet das Beispiel `Datei|Beispiele|Jugend Hackt Animation-lib|BedingungenAlternative` und schaut euch den Quelltext an.
+Öffnet das Beispiel `Datei|Beispiele|Jugend Hackt Animation-lib|A_07_BedingungenAlternative` und schaut euch den Quelltext an.
 
 ``` C++
 
@@ -798,7 +798,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int wert = 12;
@@ -817,15 +817,15 @@ void loop() {
 }
 ```
 
-Wir definieren die Wariable `wert` mit dem Wert `12` und überprüfen in der ersten `if` Bedingung ob `wert` gleich `12` ist.
+Wir definieren die Variable `wert` mit dem Wert `12` und überprüfen in der ersten `if` Bedingung ob `wert` gleich `12` ist.
 Ist dies der Fall, geben wir den Text `"Der Wert ist gleich 12"` aus. Sonst geben wir den Text `"Der Wert ist nicht gleich 12"` aus.
-In der Zweiten `if` Bedingung überprügen wir ob `wert` kleiner als `12` ist. Wenn das der Fall ist dann geben wir den Text `"Der Wert ist kleiner 12"` aus. Sonst geben wir den Text `"Der Wert ist nicht kleiner 12"` aus.
+In der Zweiten `if` Bedingung überprüfen wir ob `wert` kleiner als `12` ist. Wenn das der Fall ist dann geben wir den Text `"Der Wert ist kleiner 12"` aus. Sonst geben wir den Text `"Der Wert ist nicht kleiner 12"` aus.
 Garnicht so schwer. Spielt mit den Werten in den Bedingungen und schaut was passiert. Fügt neue Bedingungen und Werte hinzu.
 Wir sehen uns im nächsten Kapitel.
 
 ## Arrays
 
-Ein Array ist soetwas ähnliches wie eine Liste von elementen. Wie bei jeder Variable müssen wir auch für ein Array zunächst einen Typ angeben. Wir können aber danach sagen wie viele Einträge unser Array haben soll.
+Ein Array ist so etwas ähnliches wie eine Liste von Elementen. Wie bei jeder Variable müssen wir auch für ein Array zunächst einen Typ angeben. Wir können aber danach sagen wie viele Einträge unser Array haben soll.
 
 Angenommen wir wollen ein Array mit zehn Einträgen von Ganzzahlen definieren. Dann können wir dafür folgenden Quelltext schreiben.
 
@@ -833,14 +833,14 @@ Angenommen wir wollen ein Array mit zehn Einträgen von Ganzzahlen definieren. D
 int werte[10]; // Ein int array mit der Länge 10.
 ```
 
-Wow, garnicht so schwer. Arrays können auch andere Typen haben wie `float` oder `long`. Aber wir bleiben erstmal bei unseren normalen Ganzenzahlen vom Typ `int`.
-Bisher steht in unserem Array noch nichts Sinnvolles drin. Das können wir ändern indem wir an die Erste Stelle einen WErt schreiben. Vorsicht! In der Informatik fangen wir immer mit der `0` an zu zählen.
+Wow, gar nicht so schwer. Arrays können auch andere Typen haben wie `float` oder `long`. Aber wir bleiben erstmal bei unseren normalen Ganzenzahlen vom Typ `int`.
+Bisher steht in unserem Array noch nichts Sinnvolles drin. Das können wir ändern indem wir an die Erste Stelle einen Wert schreiben. Vorsicht! In der Informatik fangen wir immer mit der `0` an zu zählen.
 
 ``` C++
-werte[0] = 1; // Wir schreiben an die erste Stelle den Wert 0.
+werte[0] = 5; // Wir schreiben an die erste Stelle den Wert 5.
 ```
 
-Auch garnicht so schwer oder?
+Auch gar nicht so schwer oder?
 Wir können den Wert an dieser Stelle auch wieder auslesen und an den Computer schicken.
 
 ``` C++
@@ -863,7 +863,7 @@ Serial.println(werte[1]);
 
 ### Beispiel
 
-So weit so einfach. Öffnet das Beispiel `Datei|Beispiele|Jugend Hackt Animation-lib|Arrays` und schaut euch den Quelltext an.
+So weit so einfach. Öffnet das Beispiel `Datei|Beispiele|Jugend Hackt Animation-lib|A_08_Arrays` und schaut euch den Quelltext an.
 
 ``` C++
 
@@ -877,13 +877,13 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int werte[10]; // Wir definieren ein Array vom Typ int der Länge 10.
   
   // In der Informatik fangen wir bei 0 an zu zählen.
-  werte[0] = 1; // Wir setzen den Wert an der ersten Stelle auf 1.
+  werte[0] = 5; // Wir setzen den Wert an der ersten Stelle auf 5.
   Serial.print("Der Wert an Stelle 0: ");
   Serial.println(werte[0]); // Wir schicken den Wert an der Stelle 0 zum Computer.
   delay(1000);
@@ -897,7 +897,7 @@ void loop() {
 }
 ```
 
-Sowei ist das alles ja garnicht schwer. Drückt den Upload knopf und schaut was passiert.
+Soweit ist das alles ja gar nicht schwer. Drückt den Upload Knopf und schaut was passiert.
 Tragt neue Werte in das Array ein oder verändert bestehende Werte. Was passiert?
 Ihr werdet schnell feststellen dass das alles viel Schreibarbeit ist. Wäre es nicht schön wenn man den Arduino automatisch etwas mit allen Werten in so einem Array machen lassen könnte?
 
@@ -943,12 +943,12 @@ for(int i = 0; i < 5; i++)
 ```
 
 Das ist wesentlich weniger Quelltext, aber was genau passiert hier eigentlich?
-Die ersten zwei Zeilen bleiben gleich. Danach kommt eine komische Zeile mit etwas was wir bisher noch nicht gesehen haben.
+Die ersten zwei Zeilen bleiben gleich. Danach kommt eine komische Zeile mit etwas das wir bisher noch nicht gesehen haben.
 Das ist unsere `for` Schleife. Da geben wir an wie oft die Aktionen innerhalb der zwei Klammern `{` und `}` ausgeführt werden.
 Die `for` Schleife besteht aus drei Teilen. 
 
-* `int i = 0` legt den Startwert fest. Wir sagen hier dass wir eine Ganzzahl mit dem Namen `i` haben wollen. Wie immer fangen wir bei `0` an zu zählen.
-* `i < 5` legt die Abbruchbedingung fest. Das bedeutet dass wir die Schleife so lange ausführen wie `i` kleiner als `5` ist. Abbuuchbedingungen sind das gleiche wie [Bedingungen](Grundlagen.md#bedingungen), nur dass wir nicht extra noch ein `if` davor schreiben müssen. So lange wie die Bedingung erfüllt ist, läuft unsere Schleife weiter.
+* `int i = 0` legt den Startwert fest. Wir sagen hier, dass wir eine Ganzzahl mit dem Namen `i` haben wollen. Wie immer fangen wir bei `0` an zu zählen.
+* `i < 5` legt die Abbruchbedingung fest. Das bedeutet dass wir die Schleife so lange ausführen wie `i` kleiner als `5` ist. Abbruchbedingungen sind das gleiche wie [Bedingungen](Grundlagen.md#bedingungen), nur, dass wir nicht extra noch ein `if` davor schreiben müssen. So lange wie die Bedingung erfüllt ist, läuft unsere Schleife weiter.
 * `i++` legt fest wie die Variable `i` in jedem Schritt verändert wird. Das `i++` ist das Gleiche wie `i = i + 1`, nur kürzer. Also wird `i` in jedem Schritt um `1` erhöht.
 
 Also werden alle Aktionen in der `for` Schleife genau `5` mal ausgeführt. Also für `i = 0`, `i = 1`, `i = 2`, `i = 3` und `i = 4`.
@@ -963,11 +963,44 @@ In unserem Fall sind das folgende Zeilen.
   Serial.println(ergebins);
 ```
 
-Also werden jetzt `5` mal alle drei Zeilen hintereinander ausgeführt. Schauen wir uns doch mal ein ganzes Beispiel an.
+Also werden jetzt `5` mal alle drei Zeilen hintereinander ausgeführt und am Ende macht der Arduino also ungefäht das hier:
+
+``` C++
+  int i = 0;
+  // Erster Durchgang.
+  ergebnis = ergebnis + zahl;
+  Serial.print("Der Wert ist: ");
+  Serial.println(ergebins);
+  i++; // i ist jetzt 1
+  // Zweiter Durchgang.
+  ergebnis = ergebnis + zahl;
+  Serial.print("Der Wert ist: ");
+  Serial.println(ergebins);
+  i++; // i ist jetzt 2
+  // Dritter Durchgang.
+  ergebnis = ergebnis + zahl;
+  Serial.print("Der Wert ist: ");
+  Serial.println(ergebins);
+  i++; // i ist jetzt 3
+  // Vierter Durchgang.
+  ergebnis = ergebnis + zahl;
+  Serial.print("Der Wert ist: ");
+  Serial.println(ergebins);
+  i++; // i ist jetzt 4
+  // Fünfter Durchgang.
+  ergebnis = ergebnis + zahl;
+  Serial.print("Der Wert ist: ");
+  Serial.println(ergebins);
+  i++; // i ist jetzt 5
+```
+
+Am Ende des fünften Schrittes wird `i` dann gleich `5` und wir hören mit der Schleife auf.
+Da haben wir uns aber viel Schreibarbeit gespart. Stellt euch mal vor wir hätten das alles hundert mal machen wollen. Das wäre echt viel Text geworden.
+Schauen wir uns doch mal ein ganzes Beispiel an.
 
 ### Beispiel
 
-Öffnet das Beispiel Schleifen `Datei|Beispiele|Jugend Hackt Animation-lib|Schleifen` und schaut euch den Quelltext an.
+Öffnet das Beispiel Schleifen `Datei|Beispiele|Jugend Hackt Animation-lib|A_09_Schleifen` und schaut euch den Quelltext an.
 
 ``` C++
 /*
@@ -980,7 +1013,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int zahl = 2; // Unsere Zahl hat den Wert 2.
@@ -1008,10 +1041,10 @@ void loop() {
 ```
 
 Hier seht ihr das Beispiel einer `for` Schleife, die `5` mal eine Zahl mit sich selbst addiert und dann das Ergebnis an den Computer schickt.
-Ist doch eigentlich garnicht so kompliziert.
-Drückt den Upload Knopf und schaut euch die Ausgabe im Seriellen Monitor an und vergleicht es mit den Werten die ihr erwartet habt.
+Ist doch eigentlich gar nicht so kompliziert.
+Drückt den Upload Knopf und schaut euch die Ausgabe im seriellen Monitor an und vergleicht es mit den Werten die ihr erwartet habt.
 Modifiziert den Quelltext. Zum Beispiel könnt ihr die Schleife öfter oder weniger oft laufen lassen indem ihr die Abbruchbedingung verändert.
-Schreibt zum Beispiel anstatt `i < 5` die Bedingung `i < 10` oder `1 < 2`. Was passiert?
+Schreibt zum Beispiel anstatt `i < 5` die Bedingung `i < 10` oder `i < 2`. Was passiert?
 Wass passiert wenn wir später anfangen zu zählen? Also zum Beispiel `int i = 1` oder `int i = 2`?
 Wir sehen uns im Nächsten Beispiel wo wir Schleifen mit Arrays kombinieren.
 
@@ -1049,20 +1082,20 @@ for(int i = 0; i < 10; i++)
 ```
 
 Was passiert hier?
-Wir fangen bei `0` an zu zählen (`int i = 0`). Wir erhöhen `i` in jedem Schritt um den Wert 1 (`i++`).
+Wir fangen bei `0` an zu zählen (`int i = 0`). Wir erhöhen `i` in jedem Schritt um den Wert `1` (`i++`).
 Und das alles machen wir genau `10` mal (`i < 10`).
 
 * Wir fangen bei `0` an zu zählen. Im ersten Schritt ist `i` also `0`. Also steht im ersten Schritt `zahlen[0] = 0`.
-* Im zweiten Schritt ist `i` um `1` größer, also `1`. Also sthet im zweiten Schritt `zahlen[1] = 1` da.
+* Im zweiten Schritt ist `i` um `1` größer, also `1`. Also steht im zweiten Schritt `zahlen[1] = 1` da.
 * Im dritten Schritt ist `i` wieder um `1` größer, also `2`. Also steht im dritten Schritt `zahlen[2] = 2` da.
 * Im vierten Schritt ist `i` wieder um `1` größer, also `3`. Also steht im vierten Schritt `zahlen[3] = 3` da.
 
-Und das ganze geht immer so weiter bis `i` den wert `10` hat. Da `10` nicht kleiner als `10` is brechen wir die Schleife ab und kommen so auch nicht über die Grenze des Arrays.
-In unserem Beispiel schauen wir uns das ganze mal genauer an und werden sehen, dass das alles garnicht so kompliziert ist.
+Und das ganze geht immer so weiter bis `i` den wert `10` hat. Da `10` nicht kleiner als `10` ist, brechen wir die Schleife ab und kommen so auch nicht über die Grenze des Arrays.
+In unserem Beispiel schauen wir uns das ganze mal genauer an und werden sehen, dass das alles gar nicht so kompliziert ist.
 
 ### Beispiel
 
-Öffnet das Beispiel SchleifenUndArrays `Datei|Beispiele|Jugend Hackt Animation-lib|SchleifenUndArrays` und schaut euch den Quelltext an.
+Öffnet das Beispiel SchleifenUndArrays `Datei|Beispiele|Jugend Hackt Animation-lib|A_10_SchleifenUndArrays` und schaut euch den Quelltext an.
 
 ``` C++
 /*
@@ -1075,7 +1108,7 @@ void setup() {
 }
 
 /*
-   Hier führen wir Berechungen aus und schicken die Ergebnisse an den Computer.
+   Hier führen wir Berechnungen aus und schicken die Ergebnisse an den Computer.
 */
 void loop() {
   int zahlen[10]; // Wir definieren ein Array vom Typ int der Länge 10.
@@ -1150,7 +1183,15 @@ Drückt den Upload Knopf und schaut euch die Ausgabe an.
 Ist es das, was ihr erwartet habt?
 Spielt ein wenig mit den Werten.
 Was passiert wenn ihr die Länge des Arrays verändert. Dann müsst ihr natürlich auch die Abbruchbedingung der Schleife anpassen. Und da wir immer bei `0` anfangen zu zählen muss die immer `i < Arraylänge` sein.
-Was passiert denn wenn ihr immer den gleichen Wert setzt `zahlen[i] = 5;` oder eine Berechung durchführt `zahlen[i] = i * 5;`
+Was passiert denn, wenn ihr immer den gleichen Wert setzt `zahlen[i] = 5;` oder eine Berechnung durchführt `zahlen[i] = i * 5;`
 
 ## Strukturen
+
+---
+
+[Anfang](../Readme.md) | [Zurück](Setup.md) | [Weiter](Farben.md)
+
+---
+
+[Anfang](../Readme.md) | [Setup](Setup.md) | [Grundlagen](Grundlagen.md) | [Von Farben und Physik](Farben.md) | [Animationen](Animation.md)
 

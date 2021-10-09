@@ -15,7 +15,7 @@ void loop() {
   int werte[10]; // Wir definieren ein Array vom Typ int der Länge 10.
   
   // In der Informatik fangen wir bei 0 an zu zählen.
-  werte[0] = 1; // Wir setzen den Wert an der ersten Stelle auf 1.
+  werte[0] = 5; // Wir setzen den Wert an der ersten Stelle auf 5.
   Serial.print("Der Wert an Stelle 0: ");
   Serial.println(werte[0]); // Wir schicken den Wert an der Stelle 0 zum Computer.
   delay(1000);
